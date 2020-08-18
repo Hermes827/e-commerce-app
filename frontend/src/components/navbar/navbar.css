@@ -1,0 +1,15 @@
+.navbar {
+  /* background-color: black; */
+  font-size: 1em;
+  color: white;
+  height: 3em;
+}
+
+ul {
+  text-align: center;
+}
+
+li {
+  display: inline-block;
+  margin: 0 5em;
+}
