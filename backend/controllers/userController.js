@@ -1,17 +1,33 @@
 var User = require('../models/userModel');
+var Product = require('../models/productModel');
 
 exports.findAllUsers = async function (req, res) {
     var users = await User.find({}, function (err, users) {
         if (err) return res.status(500).send("There was a problem finding the users.");
         res.status(200).send(users);
-    });
+    }).catch(err)
 };
 
 exports.findUser = async function (req, res) {
     var user = await User.findById(req.query.userID, function (err, user) {
         if (err) return res.status(500).send("There was a problem finding the users.");
         res.status(200).send(user);
-    });
+    }).catch(err)
+};
+
+exports.createProduct = async function (req, res) {
+    var product = await Product.create({
+                        name: String,
+                        image: {
+                            type: String
+                        },
+                        price: String,
+                        description: String,
+                        sellerID: String
+          }, function (err, product) {
+        if (err) return res.status(500).send("There was a problem finding the products.");
+        res.status(200).send(product);
+    }).catch(err)
 };
 
 // exports.uploadPhoto = async function (req, res) {

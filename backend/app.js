@@ -11,8 +11,15 @@ app.use(cors());
 app.use('/public', express.static('public'));
 var port = process.env.PORT || 4000;
 
-var UserRouter = require('./routes/userRoutes');
-app.use('/users', UserRouter);
+//////////////////////////////////////////////////
+
+// var UserRouter = require('./routes/userRoutes');
+// app.use('/users', UserRouter);
+
+var ProductRouter = require('./routes/productRoutes');
+app.use('/products', ProductRouter);
+
+/////////////////////////////////////////////////
 
 app.use((req, res, next) => {
     setImmediate(() => {

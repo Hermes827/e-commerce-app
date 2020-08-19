@@ -30,8 +30,8 @@ var VerifyToken = require('../middleware/verifyToken.js')
 //     }
 // });
 
-router.get('/', UserController.findAllUsers)
-router.get('/find', UserController.findUser)
+// router.get('/', UserController.findAllUsers)
+// router.get('/find', UserController.findUser)
 // router.put('/uploadphoto', upload.single('profileImg'), VerifyToken, UserController.uploadPhoto)
 // router.put('/sendmessage', UserController.sendMessage)
 // router.delete('/deletemessages', UserController.deleteMessages)
