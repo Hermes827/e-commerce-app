@@ -3,9 +3,6 @@ const mongoose = require("mongoose");
 const garlic = "./photos"
 // const dev = require("../config/dev"); //get your mongoose string
 
-console.log(garlic)
-
-
 const products = [
 
   new Product({
