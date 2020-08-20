@@ -16,17 +16,15 @@ exports.findProduct = async function (req, res) {
 
 exports.createProduct = async function (req, res) {
     var product = await Product.create({
-                        name: String,
-                        image: {
-                            type: String
-                        },
-                        price: String,
-                        description: String,
-                        sellerID: String
+                        name: req.body.name,
+                        image: req.body.image,
+                        price: req.body.price,
+                        description: req.body.description,
+                        sellerID: req.body.sellerID
           }, function (err, product) {
-        // if (err) return res.status(500).send("There was a problem creating the product.");
+        if (err) return res.status(500).send("There was a problem creating the product");
         res.status(200).send(product);
-    }).catch(err)
+    })
 };
 
 // exports.createProduct = async function (req, res) {
