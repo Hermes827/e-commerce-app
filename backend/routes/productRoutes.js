@@ -5,5 +5,6 @@ var ProductController = require('../controllers/productController')
 router.get('/', ProductController.findAllProducts)
 router.get('/find', ProductController.findProduct)
 router.post('/create', ProductController.createProduct)
+router.delete('/delete', ProductController.deleteProducts)
 
 module.exports = router;

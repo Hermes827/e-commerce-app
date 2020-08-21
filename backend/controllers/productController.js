@@ -4,14 +4,14 @@ exports.findAllProducts = async function (req, res) {
     var products = await Product.find({}, function (err, products) {
         if (err) return res.status(500).send("There was a problem finding the products.");
         res.status(200).send(products);
-    }).catch(err)
+    })
 };
 
 exports.findProduct = async function (req, res) {
     var product = await Product.findById(req.query.productID, function (err, product) {
         if (err) return res.status(500).send("There was a problem finding the products.");
         res.status(200).send(product);
-    }).catch(err)
+    })
 };
 
 exports.createProduct = async function (req, res) {
@@ -25,6 +25,13 @@ exports.createProduct = async function (req, res) {
         if (err) return res.status(500).send("There was a problem creating the product");
         res.status(200).send(product);
     })
+};
+
+exports.deleteProducts = async function(req, res){
+  Product.remove({}, function (err, products) {
+      if (err) return res.status(500).send("There was a problem finding the products.");
+      res.status(200).send("Deleted all products");
+  })
 };
 
 // exports.createProduct = async function (req, res) {
