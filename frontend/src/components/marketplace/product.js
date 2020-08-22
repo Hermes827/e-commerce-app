@@ -10,7 +10,7 @@ class Product extends React.Component {
     <h1>{this.props.product.name}</h1>
     <h3>{this.props.product.description}</h3>
     <h3>{this.props.product.price}</h3>
-    <button>buy</button>
+    <button>add to cart</button>
     </div>
   );
 }

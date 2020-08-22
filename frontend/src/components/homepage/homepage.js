@@ -10,7 +10,6 @@ class Homepage extends React.Component {
   render(){
   return (
     <div>
-      homepage
       <Marketplace/>
     </div>
   );

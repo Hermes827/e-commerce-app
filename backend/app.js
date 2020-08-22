@@ -19,6 +19,9 @@ app.use('/users', UserRouter);
 var ProductRouter = require('./routes/productRoutes');
 app.use('/products', ProductRouter);
 
+var AuthRouter = require('./routes/authRoutes');
+app.use('/auth', AuthRouter);
+
 /////////////////////////////////////////////////
 
 app.use((req, res, next) => {
