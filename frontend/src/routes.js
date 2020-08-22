@@ -4,6 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Homepage from './components/homepage/homepage.js';
 import Login from './components/authentication/login.js';
 import Signup from './components/authentication/signup.js';
+import './App.css';
 
 export const Routes = () => {
   return (

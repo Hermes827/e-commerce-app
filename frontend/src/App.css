@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.product {
+  border-style: solid;
+  border-width: medium;
+  border-color: green;
+  height: 30em;
+  width: 30em;
+  text-align: center;
+  float: left;
+  margin: 3em 3em;
+  margin-left: 8em;
+}
+
+.productImage {
+  width: 70%;
+  height: 50%;
+  margin-top: 2em;
+}
