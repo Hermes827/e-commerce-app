@@ -86,3 +86,28 @@
   margin-right: 10%;
   float: right;
 }
+
+/* ////////////////////////// */
+
+.navbar {
+  /* background-color: black; */
+  font-size: 1em;
+  color: white;
+  height: 3em;
+  margin-left: 50%;
+  /* text-align: right; */
+}
+
+li {
+  display: inline-block;
+  margin: 0 5em;
+}
+
+.userNavbar {
+  /* background-color: black; */
+  font-size: 1em;
+  color: white;
+  height: 3em;
+  margin-left: 50%;
+  /* text-align: right; */
+}

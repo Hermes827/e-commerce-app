@@ -4,17 +4,17 @@ import '../../App.css';
 import Login from '../authentication/login.js';
 import Signup from '../authentication/signup.js';
 
-const navbar = () => {
+const userNavbar = () => {
   return (
-    <div className="navbar">
+    <div className="userNavbar">
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/login">Log in</Link></li>
-        <li><Link to="/signup">Sign up</Link></li>
+        <li><Link to="/login">cart</Link></li>
+        <li><Link to="/signup">settings</Link></li>
       </ul>
       <hr />
     </div>
   );
 };
 
-export default navbar;
+export default userNavbar;
