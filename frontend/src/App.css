@@ -54,3 +54,35 @@
   height: 50%;
   margin-top: 2em;
 }
+
+
+
+.signup{
+  height: 15em;
+}
+
+.signupH1 {
+  float: left;
+  margin-left: 10%;
+  /* font-size: 3em; */
+}
+
+.signupForm {
+  margin-right: 10%;
+  float: right;
+}
+
+.login {
+  height: 15em;
+}
+
+.loginH1 {
+  float: left;
+  margin-left: 10%;
+  /* font-size: 3em; */
+}
+
+.loginForm {
+  margin-right: 10%;
+  float: right;
+}

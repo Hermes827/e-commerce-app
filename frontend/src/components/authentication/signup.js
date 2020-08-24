@@ -36,7 +36,7 @@ onSubmit = (e) => {
     body: raw,
     redirect: 'follow'
   };
-  fetch("http://localhost:4000/api/auth/signup", requestOptions)
+  fetch("http://localhost:4000/auth/signup", requestOptions)
     .then(response => response.json())
     .then(result => {
       if(result.token){localStorage.token = result.token}
@@ -48,8 +48,10 @@ onSubmit = (e) => {
 
   render(){
   return (
-    <div>
-      <Jumbotron className="jumbotron">
+      <Jumbotron>
+      <div className="signup">
+      <h1 className="signupH1">Create an account!</h1>
+      <div className="signupForm">
       <h1>Signup</h1>
       <form>
         <label>Name:</label>
@@ -65,8 +67,9 @@ onSubmit = (e) => {
         <Link to="/">
           <Button variant="primary">Cancel</Button>
         </Link>
+      </div>
+      </div>
       </Jumbotron>
-    </div>
   );
 }
 }
