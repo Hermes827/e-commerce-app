@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button, Jumbotron } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-import {withRouter} from 'react-router';
-import { compose } from 'redux'
-import { connect } from 'react-redux';
-import { fetchUserData } from '../../actions/index.js';
+// import {withRouter} from 'react-router';
+// import { compose } from 'redux'
+// import { connect } from 'react-redux';
+// import { fetchUserData } from '../../actions/index.js';
 
 class Signup extends React.Component {
 
@@ -71,14 +71,16 @@ onSubmit = (e) => {
 }
 }
 
-const mapDispatchToProps = {
-  fetchUserData
-};
+export default Signup
 
-const mapStateToProps = (state) => ({
-})
-
-export default compose(
-  withRouter,
-  connect(mapStateToProps, mapDispatchToProps)
-)(Signup);
+// const mapDispatchToProps = {
+//   fetchUserData
+// };
+//
+// const mapStateToProps = (state) => ({
+// })
+//
+// export default compose(
+//   withRouter,
+//   connect(mapStateToProps, mapDispatchToProps)
+// )(Signup);

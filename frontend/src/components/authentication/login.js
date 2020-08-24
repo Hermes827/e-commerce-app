@@ -2,10 +2,10 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import { Link } from "react-router-dom";
-import { withRouter } from 'react-router';
-import { connect } from 'react-redux';
-import { compose } from 'redux'
-import { fetchUserData } from '../../actions/index.js';
+// import { withRouter } from 'react-router';
+// import { connect } from 'react-redux';
+// import { compose } from 'redux'
+// import { fetchUserData } from '../../actions/index.js';
 
 class Login extends React.Component {
 
@@ -65,14 +65,16 @@ onSubmit = (e) => {
 }
 }
 
-const mapDispatchToProps = {
-  fetchUserData
-};
+export default Login
 
-const mapStateToProps = (state) => ({
-})
-
-export default compose(
-  withRouter,
-  connect(mapStateToProps, mapDispatchToProps)
-)(Login);
+// const mapDispatchToProps = {
+//   fetchUserData
+// };
+//
+// const mapStateToProps = (state) => ({
+// })
+//
+// export default compose(
+//   withRouter,
+//   connect(mapStateToProps, mapDispatchToProps)
+// )(Login);

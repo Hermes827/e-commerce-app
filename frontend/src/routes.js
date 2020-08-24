@@ -5,6 +5,7 @@ import Homepage from './components/homepage/homepage.js';
 import Login from './components/authentication/login.js';
 import Signup from './components/authentication/signup.js';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const Routes = () => {
   return (
