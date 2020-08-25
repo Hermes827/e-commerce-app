@@ -2,7 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import { Link } from "react-router-dom";
-// import { withRouter } from 'react-router';
+import { withRouter } from 'react-router';
 // import { connect } from 'react-redux';
 // import { compose } from 'redux'
 // import { fetchUserData } from '../../actions/index.js';
@@ -38,8 +38,9 @@ onSubmit = (e) => {
     .then(response => response.json())
     .then(result => {
       if(result.token){localStorage.token = result.token}
-      this.props.fetchUserData(localStorage.token)
-      this.props.history.push('/homepage/user')
+      console.log(this.props.history)
+      // this.props.fetchUserData(localStorage.token)
+      this.props.history.push('/')
     })
     .catch(error => console.log('error', error));
 }
@@ -68,7 +69,7 @@ onSubmit = (e) => {
 }
 }
 
-export default Login
+export default withRouter(Login)
 
 // const mapDispatchToProps = {
 //   fetchUserData
