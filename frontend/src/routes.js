@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './components/navbar/navbar.js';
-import userNavbar from './components/userNavbar/userNavbar.js';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Homepage from './components/homepage/homepage.js';
 import Login from './components/authentication/login.js';
 import Signup from './components/authentication/signup.js';
@@ -11,7 +10,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const Routes = () => {
-  // const [count, setCount] = useState(0);
   return (
     <div>
       <Navbar/>
@@ -25,10 +23,3 @@ export const Routes = () => {
     </div>
   );
 }
-
-// <div>
-// <p>You clicked {count} times</p>
-// <button onClick={() => setCount(count + 1)}>
-//  Click me
-// </button>
-// </div>

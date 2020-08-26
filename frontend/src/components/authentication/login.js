@@ -3,9 +3,9 @@ import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import { Link } from "react-router-dom";
 import { withRouter } from 'react-router';
-// import { connect } from 'react-redux';
-// import { compose } from 'redux'
-// import { fetchUserData } from '../../actions/index.js';
+import { connect } from 'react-redux';
+import { compose } from 'redux'
+import { getCookie } from '../../actions/index.js';
 
 class Login extends React.Component {
 
@@ -38,8 +38,7 @@ onSubmit = (e) => {
     .then(response => response.json())
     .then(result => {
       if(result.token){localStorage.token = result.token}
-      console.log(this.props.history)
-      // this.props.fetchUserData(localStorage.token)
+      this.props.getCookie(localStorage.token)
       this.props.history.push('/')
     })
     .catch(error => console.log('error', error));
@@ -64,21 +63,20 @@ onSubmit = (e) => {
         </Link>
         </div>
         </div>
+        {console.log(this.props)}
+        <button onClick={this.props.getCookie}>click</button>
       </Jumbotron>
   );
 }
 }
 
-export default withRouter(Login)
+const mapDispatchToProps = {
+  getCookie
+};
 
-// const mapDispatchToProps = {
-//   fetchUserData
-// };
-//
-// const mapStateToProps = (state) => ({
-// })
-//
-// export default compose(
-//   withRouter,
-//   connect(mapStateToProps, mapDispatchToProps)
-// )(Login);
+const mapStateToProps = (state) => ({
+  cookie: state.cookie
+})
+
+export default compose(withRouter,
+  connect(mapStateToProps, mapDispatchToProps))(Login);
