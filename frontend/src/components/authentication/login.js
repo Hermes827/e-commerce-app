@@ -63,7 +63,7 @@ onSubmit = (e) => {
         </Link>
         </div>
         </div>
-        {console.log(this.props)}
+
         <button onClick={this.props.getCookie}>click</button>
       </Jumbotron>
   );
