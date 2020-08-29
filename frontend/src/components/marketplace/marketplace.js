@@ -32,7 +32,7 @@ class Marketplace extends React.Component {
 
   render(){
   return (
-    <div>
+    <div className="marketplace">
     {this.state.products.map(product => {
       return <Product product={product} key={product._id}/>
     })}

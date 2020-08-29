@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -11,7 +11,7 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
 .App-header {
   background-color: #282c34;
@@ -24,7 +24,7 @@
   color: white;
 }
 
-.App-link {
+/* .App-link {
   color: #61dafb;
 }
 
@@ -35,7 +35,7 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 .product {
   border-style: solid;
@@ -47,6 +47,7 @@
   float: left;
   margin: 3em 3em;
   margin-left: 8em;
+  color: white;
 }
 
 .productImage {
@@ -89,25 +90,39 @@
 
 /* ////////////////////////// */
 
-.navbar {
-  /* background-color: black; */
-  font-size: 1em;
-  color: white;
-  height: 3em;
-  margin-left: 50%;
-  /* text-align: right; */
+.navbarDiv {
+  background-color: black;
+  font-size: 1.1em;
+  height: 3.5em;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  border-style: solid;
+  border-width: thin;
+  border-bottom-color: grey;
 }
 
-li {
+.navbarLi {
   display: inline-block;
   margin: 0 4em;
 }
 
-.userNavbar {
-  /* background-color: black; */
-  font-size: 1em;
-  color: white;
-  height: 3em;
-  margin-left: 50%;
-  /* text-align: right; */
+.navbarLoggedInStatus {
+  display: inline-block;
+  margin: 0 4em;
+  color: green;
+}
+
+.navbarUlLoggedin {
+  margin: 1em 0px;
+}
+
+.navbarUl {
+  margin: 1em 0px;
+  text-align: right;
+  margin-right: 5%;
+}
+
+.marketplace {
+  padding-top: 5%;
 }

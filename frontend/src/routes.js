@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './components/navbar/navbar.js';
+import AppNavbar from './components/appNavbar/appNavbar.js';
 import { Route, Switch } from 'react-router-dom';
 import Homepage from './components/homepage/homepage.js';
 import Login from './components/authentication/login.js';
@@ -8,11 +8,12 @@ import ShoppingCart from './components/shoppingCart/shoppingCart.js'
 import Signout from './components/authentication/signout.js';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from 'react-bootstrap/Navbar'
 
 export const Routes = () => {
   return (
     <div>
-      <Navbar/>
+      <AppNavbar/>
       <Switch>
         <Route exact path="/" component={Homepage}/>
         <Route exact path="/login" component={Login}/>
