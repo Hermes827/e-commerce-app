@@ -1,4 +1,7 @@
 var mongoose = require('mongoose');
+var schema = mongoose.Schema
+var ObjectId = schema.Types.ObjectId
+
 var UserSchema = new mongoose.Schema({
   name: String,
   email: String,
@@ -7,7 +10,12 @@ var UserSchema = new mongoose.Schema({
   profileImg: {
       type: String
   },
-  messages: []
+  messages: [],
+  shoppingCart: [],
+  products: [{
+        type: ObjectId,
+        ref: "Product"
+      }]
 });
 mongoose.model('User', UserSchema);
 

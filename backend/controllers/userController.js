@@ -15,17 +15,17 @@ exports.findUser = async function (req, res) {
     }).catch(err)
 };
 
-exports.createProduct = async function (req, res) {
+exports.uploadProduct = async function (req, res) {
     var product = await Product.create({
-                        name: String,
-                        image: {
-                            type: String
-                        },
-                        price: String,
-                        description: String,
-                        sellerID: String
+                        name: req.body.name,
+                        // image: {
+                        //     type: String
+                        // },
+                        price: req.body.price,
+                        description: req.body.description,
+                        sellerID: req.query.userID
           }, function (err, product) {
-        if (err) return res.status(500).send("There was a problem finding the products.");
+        if (err) return res.status(500).send("There was a problem uploading the product.");
         res.status(200).send(product);
     }).catch(err)
 };

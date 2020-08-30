@@ -1,4 +1,7 @@
 var mongoose = require('mongoose');
+var schema = mongoose.Schema
+var ObjectId = schema.Types.ObjectId
+
 var ProductSchema = new mongoose.Schema({
   name: String,
   image: {
@@ -6,7 +9,7 @@ var ProductSchema = new mongoose.Schema({
   },
   price: String,
   description: String,
-  sellerID: String
+  sellerID: ObjectId
 });
 mongoose.model('Product', ProductSchema);
 
