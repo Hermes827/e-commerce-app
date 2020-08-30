@@ -36,7 +36,7 @@ onSubmit = (e) => {
     .then(response => response.json())
     .then(result => {
       if(result.token){localStorage.token = result.token}
-      this.props.getCookie(localStorage.token)
+      // this.props.getCookie(localStorage.token)
       this.props.history.push('/')
     })
     .catch(error => console.log('error', error));

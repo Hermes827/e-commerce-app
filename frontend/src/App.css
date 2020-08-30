@@ -47,13 +47,14 @@
 .loginH1 {
   float: left;
   margin-top: 3%;
-  margin-left: 7%;
   font-size: 3rem;
+  width: 75%;
+  padding-left: 7%;
 }
 
 .loginForm {
   float: right;
-  margin-right: 10%;
+  width: 25%;
 }
 
 .loginPasswordInput {
@@ -63,7 +64,7 @@
 .loginButton{
   margin: 0 1%;
   margin-top: 0.5%;
-  width: 48%;
+  width: 40%;
 }
 
 /* signup ///////////////////*/
@@ -81,6 +82,42 @@
 .signupForm {
   margin-right: 10%;
   float: right;
+}
+
+/* uploadProduct /////////////*/
+
+.uploadProduct {
+  padding-top: 7%;
+}
+
+.uploadProductJumbotron {
+  height: 35rem;
+  width: 35%;
+  margin: 0 auto;
+}
+
+.uploadProductH1 {
+  text-align: center;
+  margin-top: -8%;
+}
+
+.uploadProductForm {
+  margin: 10% 20%;
+  padding: 5% 10%;
+  width: 60%;
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+}
+
+.uploadProductInput {
+  margin-bottom: 1%;
+}
+
+.uploadProductButton {
+  margin: 0 2.5%;
+  margin-top: 5%;
+  width: 45%;
 }
 
 /* ////////////////////////// */
