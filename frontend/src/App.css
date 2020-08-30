@@ -1,19 +1,8 @@
-.App {
+/* .App {
   text-align: center;
-}
-
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 } */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,19 +11,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-/* .App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 } */
 
 .product {
@@ -56,7 +32,41 @@
   margin-top: 2em;
 }
 
+/* login //////////////////// */
 
+.login {
+  padding-top: 10%;
+}
+
+.loginJumbotron {
+  height: 20rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.loginH1 {
+  float: left;
+  margin-top: 3%;
+  margin-left: 7%;
+  font-size: 3rem;
+}
+
+.loginForm {
+  float: right;
+  margin-right: 10%;
+}
+
+.loginPasswordInput {
+  margin-left: 1.75%;
+}
+
+.loginButton{
+  margin: 0 1%;
+  margin-top: 0.5%;
+  width: 48%;
+}
+
+/* signup ///////////////////*/
 
 .signup{
   height: 15em;
@@ -69,21 +79,6 @@
 }
 
 .signupForm {
-  margin-right: 10%;
-  float: right;
-}
-
-.login {
-  height: 15em;
-}
-
-.loginH1 {
-  float: left;
-  margin-left: 10%;
-  /* font-size: 3em; */
-}
-
-.loginForm {
   margin-right: 10%;
   float: right;
 }
@@ -104,8 +99,13 @@
 
 .navbarLi {
   display: inline-block;
-  margin: 0 4em;
+  margin: 0 5%;
 }
+
+/* .navbarLi1 {
+  display: inline-block;
+  margin: 0 auto;
+} */
 
 .navbarLoggedInStatus {
   display: inline-block;
@@ -126,3 +126,8 @@
 .marketplace {
   padding-top: 5%;
 }
+
+/* //////////////////////////////// */
+/* //////////////////////////////// */
+/* //////////////////////////////// */
+/* //////////////////////////////// */

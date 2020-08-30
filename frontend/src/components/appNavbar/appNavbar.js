@@ -14,7 +14,7 @@ class AppNavbar extends React.Component{
     }
   }
 
-  renderAddProductLi(){
+  renderUploadProductLi(){
     if(localStorage.token){
       return <li className="navbarLi"><Link to="/upload-product">Upload Product to MarketPlace</Link></li>
     }
@@ -32,11 +32,11 @@ class AppNavbar extends React.Component{
       <ul className={(localStorage.token) ? "navbarUlLoggedin" : "navbarUl"}>
         {this.renderLoggedInStatus()}
         <li className="navbarLi"><Link to="/">Home</Link></li>
-        {this.renderAddProductLi()}
+        {this.renderUploadProductLi()}
         <li className="navbarLi"><Link to={(localStorage.token) ? "/shoppingcart" : "/login"}>
           {(localStorage.token) ? "Shopping Cart" : "Log In"}
         </Link></li>
-        <li className="navbarLi"><Link to={(localStorage.token) ? "/signout" : "/signup"}>
+      <li className="navbarLi"><Link to={(localStorage.token) ? "/signout" : "/signup"}>
         {(localStorage.token) ? "Sign Out" : "Sign Up"}
       </Link></li>
       </ul>

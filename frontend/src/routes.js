@@ -6,9 +6,9 @@ import Login from './components/authentication/login.js';
 import Signup from './components/authentication/signup.js';
 import ShoppingCart from './components/shoppingCart/shoppingCart.js'
 import Signout from './components/authentication/signout.js';
-import './App.css';
+import UploadProduct from './components/uploadProduct/uploadProduct.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from 'react-bootstrap/Navbar'
+import './App.css';
 
 export const Routes = () => {
   return (
@@ -20,6 +20,7 @@ export const Routes = () => {
         <Route exact path="/signup" component={Signup}/>
         <Route exact path="/shoppingcart" component={ShoppingCart}/>
         <Route exact path="/signout" component={Signout}/>
+        <Route exact path="/upload-product" component={UploadProduct}/>
       </Switch>
     </div>
   );

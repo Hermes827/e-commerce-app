@@ -1,11 +1,9 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron'
-import { Link } from "react-router-dom";
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { compose } from 'redux'
-import { getCookie } from '../../actions/index.js';
 
 class Login extends React.Component {
 
@@ -44,38 +42,36 @@ onSubmit = (e) => {
     .catch(error => console.log('error', error));
 }
 
+  returnHome = () => {
+    this.props.history.push('/')
+  }
+
   render(){
   return (
-      <Jumbotron>
-      <div className="login">
-      <h1 className="loginH1">sign in to your account!</h1>
-      <div className="loginForm">
-      <h1>Login</h1>
-      <form>
-        <label>Username:</label>
-        <input type="text" name="username" placeholder="username" onChange={this.captureText}></input><br/>
-        <label>Password:</label>
-        <input type="password" name="password" placeholder="password" onChange={this.captureText}></input><br/>
-      </form>
-      <Button variant="primary" onClick={this.onSubmit}>Log in</Button>
-        <Link to="/">
-          <Button variant="primary">Cancel</Button>
-        </Link>
+    <div className="login">
+      <Jumbotron className="loginJumbotron">
+        <h1 className="loginH1">Log In to Your Account!</h1>
+        <div className="loginForm">
+        <h1>Login</h1>
+        <form>
+          <label>Username:</label>
+          <input type="text" name="username" placeholder="username" onChange={this.captureText}/><br/>
+          <label>Password:</label>
+          <input className="loginPasswordInput" type="password" name="password" placeholder="password" onChange={this.captureText}/><br/>
+          <Button className="loginButton" variant="primary" onClick={this.onSubmit}>Log in</Button>
+          <Button className="loginButton" variant="primary" onClick={this.returnHome}>Cancel</Button>
+        </form>
         </div>
-        </div>
-
-        <button onClick={this.props.getCookie}>click</button>
       </Jumbotron>
+    </div>
   );
 }
 }
 
 const mapDispatchToProps = {
-  getCookie
 };
 
 const mapStateToProps = (state) => ({
-  cookie: state.cookie
 })
 
 export default compose(withRouter,

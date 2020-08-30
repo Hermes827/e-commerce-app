@@ -48,28 +48,30 @@ onSubmit = (e) => {
 
   render(){
   return (
-      <Jumbotron>
-      <div className="signup">
-      <h1 className="signupH1">Create an account!</h1>
-      <div className="signupForm">
-      <h1>Signup</h1>
-      <form>
-        <label>Name:</label>
-        <input type="text" name="name" placeholder="name" onChange={this.captureText}></input><br/>
-        <label>Email:</label>
-        <input type="text" name="email" placeholder="email" onChange={this.captureText}></input><br/>
-        <label>Username:</label>
-        <input type="text" name="username" placeholder="username" onChange={this.captureText}></input><br/>
-        <label>Password:</label>
-        <input type="password" name="password" placeholder="password" onChange={this.captureText}></input><br/>
-      </form>
-      <Button variant="primary" onClick={this.onSubmit}>Sign up</Button>
-        <Link to="/">
-          <Button variant="primary">Cancel</Button>
-        </Link>
+      <div>
+        <Jumbotron>
+        <div className="signup">
+        <h1 className="signupH1">Create an account!</h1>
+        <div className="signupForm">
+        <h1>Signup</h1>
+        <form>
+          <label>Name:</label>
+          <input type="text" name="name" placeholder="name" onChange={this.captureText}></input><br/>
+          <label>Email:</label>
+          <input type="text" name="email" placeholder="email" onChange={this.captureText}></input><br/>
+          <label>Username:</label>
+          <input type="text" name="username" placeholder="username" onChange={this.captureText}></input><br/>
+          <label>Password:</label>
+          <input type="password" name="password" placeholder="password" onChange={this.captureText}></input><br/>
+        </form>
+        <Button variant="primary" onClick={this.onSubmit}>Sign up</Button>
+          <Link to="/">
+            <Button variant="primary">Cancel</Button>
+          </Link>
+        </div>
+        </div>
+        </Jumbotron>
       </div>
-      </div>
-      </Jumbotron>
   );
 }
 }
