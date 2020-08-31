@@ -108,6 +108,7 @@
   border-style: solid;
   border-width: medium;
   border-color: black;
+  position: relative;
 }
 
 .uploadProductInput {
@@ -119,6 +120,30 @@
   margin-top: 5%;
   width: 45%;
 }
+
+.successfulUpload {
+  height: 40%;
+  width: 150%;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  position: absolute;
+  right: -25%;
+  text-align: center;
+  box-shadow: 10px 5px 5px black;
+}
+
+.uploadProductAlertMessage {
+  display: inline-block;
+  margin-top: 6%;
+  margin-left: 15%;
+  font-size: 2.5rem;
+}
+
+/* successfulUpload ////////// */
+
+
+
 
 /* ////////////////////////// */
 
@@ -138,11 +163,6 @@
   display: inline-block;
   margin: 0 5%;
 }
-
-/* .navbarLi1 {
-  display: inline-block;
-  margin: 0 auto;
-} */
 
 .navbarLoggedInStatus {
   display: inline-block;
@@ -164,7 +184,6 @@
   padding-top: 5%;
 }
 
-/* //////////////////////////////// */
 /* //////////////////////////////// */
 /* //////////////////////////////// */
 /* //////////////////////////////// */

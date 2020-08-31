@@ -2,6 +2,8 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import { withRouter } from 'react-router';
+import SuccessfulUpload from './successfulUpload.js'
+import Alert from 'react-bootstrap/Alert'
 
 class UploadProduct extends React.Component {
 
@@ -12,7 +14,8 @@ class UploadProduct extends React.Component {
       image: "",
       price: "",
       description: "",
-      sellerID: ""
+      sellerID: "",
+      successfulUpload: false
     }
   }
 
@@ -44,12 +47,25 @@ onSubmit = (e) => {
     .then(response => response.json())
     .then(result => {
       console.log(result)
+      this.setState({
+        successfulUpload: true
+      })
     })
     .catch(error => console.log('error', error));
 }
 
   returnHome = () => {
     this.props.history.push('/')
+  }
+
+  renderSuccessfulUpload = () => {
+    if(this.state.successfulUpload){
+      return (
+        <Alert className="successfulUpload" variant="success" onClose={() => this.setState({successfulUpload:false})} dismissible>
+          <p className="uploadProductAlertMessage">Upload Complete!</p>
+        </Alert>
+      );
+    }
   }
 
   render(){
@@ -60,6 +76,7 @@ onSubmit = (e) => {
         <form className="uploadProductForm">
           <label>Name:</label><br/>
           <input className="uploadProductInput" type="text" name="name" placeholder="name" onChange={this.captureText}/><br/>
+          {this.renderSuccessfulUpload()}
           <label>Price:</label><br/>
           <input className="uploadProductInput" type="text" name="price" placeholder="price" onChange={this.captureText}/><br/>
           <label>Description:</label><br/>
