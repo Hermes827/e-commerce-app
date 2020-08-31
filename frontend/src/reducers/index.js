@@ -1,37 +1,22 @@
-import { GET_COOKIE } from '../actions/index.js';
-import { DISCARD_COOKIE } from '../actions/index.js';
+import { GET_INFO } from '../actions/index.js';
 
 const initialState = {
-  cookie: null
-  // currentUser: {},
-  // updates: [],
-  // chosenMail: {}
+  currentUser: {}
 }
 
 export function reducer(state = initialState, action) {
   // console.log('reducer', state, action);
   switch(action.type){
 
-  case GET_COOKIE:
-    console.log("get cookie")
-    return Object.assign({}, state, {
-      cookie: action.payload.arg
-    });
-
-    case DISCARD_COOKIE:
-      console.log("no cookie")
+    case GET_INFO:
       return Object.assign({}, state, {
-        cookie: null
+        currentUser: action.payload.arg
       });
-  //
-  // case GET_UPDATES:
+
+  // case GET_COOKIE:
+  //   console.log("get cookie")
   //   return Object.assign({}, state, {
-  //     updates: action.payload.arg
-  //   });
-  //
-  // case GET_CHOSENMAIL:
-  //   return Object.assign({}, state, {
-  //     chosenMail: action.payload.arg
+  //     cookie: action.payload.arg
   //   });
 
     default:

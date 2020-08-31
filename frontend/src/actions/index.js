@@ -1,21 +1,26 @@
-export const GET_COOKIE = 'GET_COOKIE';
-export const getCookie = (arg) => ({
-  type: GET_COOKIE,
+export const GET_INFO = 'GET_INFO';
+export const getInfo = (arg) => ({
+  type: GET_INFO,
   payload: { arg }
 });
 
-export const DISCARD_COOKIE = 'DISCARD_COOKIE';
-export const discardCookie = () => ({
-  type: DISCARD_COOKIE
-});
+export function getUserInfo(arg) {
+  var myHeaders = new Headers();
+  myHeaders.append("x-access-token", arg);
+  return function(dispatch, getState) {
+    var requestOptions = {
+    method: 'GET',
+    redirect: 'follow',
+    headers: myHeaders
+    };
+    fetch("http://localhost:4000/auth/info", requestOptions)
+    .then(response => response.json())
+    .then(json => {
+      dispatch(getInfo(json))
+    })
+  };
+}
 
-
-// export const GET_UPDATES = 'GET_UPDATES';
-// export const getUpdates = (arg) => ({
-//   type: GET_UPDATES,
-//   payload: { arg }
-// });
-//
 // export const GET_CHOSENMAIL = 'GET_CHOSENMAIL';
 // export const getChosenMail = (arg) => ({
 //   type: GET_CHOSENMAIL,
@@ -36,20 +41,5 @@ export const discardCookie = () => ({
 //       .then(json => {
 //         dispatch(getData(json))
 //       })
-//   };
-// }
-//
-// export function getAllUpdates(arg) {
-//   return function(dispatch, getState) {
-//     var requestOptions = {
-//     method: 'GET',
-//     redirect: 'follow'
-//     };
-//     fetch("http://localhost:4000/updates", requestOptions)
-//     .then(response => response.json())
-//     .then(json => {
-//       console.log(json)
-//       dispatch(getUpdates(json.reverse()))
-//     })
 //   };
 // }

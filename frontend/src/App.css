@@ -140,50 +140,41 @@
   font-size: 2.5rem;
 }
 
-/* successfulUpload ////////// */
+/* navbar ////////////// */
 
-
-
-
-/* ////////////////////////// */
-
-.navbarDiv {
-  background-color: black;
-  font-size: 1.1em;
-  height: 3.5em;
-  position: fixed;
-  width: 100%;
-  text-align: center;
-  border-style: solid;
-  border-width: thin;
-  border-bottom-color: grey;
+.navbarUploadLink {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-right: 26%;
 }
 
-.navbarLi {
-  display: inline-block;
-  margin: 0 5%;
+.navbarLink {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 1.25rem;
+}
+
+.navbarLinkDiv {
+
+}
+
+.navbarText {
+  width: 15%;
+  margin-left: 3%;
 }
 
 .navbarLoggedInStatus {
-  display: inline-block;
-  margin: 0 4em;
   color: green;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
-.navbarUlLoggedin {
-  margin: 1em 0px;
-}
-
-.navbarUl {
-  margin: 1em 0px;
-  text-align: right;
-  margin-right: 5%;
-}
+/* //////////////////////////////// */
 
 .marketplace {
   padding-top: 5%;
 }
 
-/* //////////////////////////////// */
+
 /* //////////////////////////////// */
 /* //////////////////////////////// */
