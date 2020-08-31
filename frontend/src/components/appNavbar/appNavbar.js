@@ -9,6 +9,10 @@ import Container from 'react-bootstrap/Container'
 
 class AppNavbar extends React.Component{
 
+  componentDidMount(){
+    if(localStorage.token){this.props.getUserInfo(localStorage.token)}
+  }
+
   renderUploadProductLink(){
     if(localStorage.token){
       return <Nav.Link className="navbarUploadLink" href="/upload-product">Upload Product to MarketPlace</Nav.Link>
@@ -17,7 +21,7 @@ class AppNavbar extends React.Component{
 
   renderLoggedInStatus(){
     if(localStorage.token){
-      return <Navbar.Text className="navbarText"><div className="navbarLoggedInStatus">Logged in as: {this.props.currentUser.name}</div></Navbar.Text>
+      return <Navbar.Text className="navbarText"><div className="navbarLoggedInStatus">Logged in as: {this.props.currentUser.username}</div></Navbar.Text>
     } else {
       return <h1 className="navbarH1">Herb Bazaar</h1>
     }

@@ -3,14 +3,11 @@ var { v4: uuidv4 } = require('uuid');
 uuidv4()
 var DIR = './public/';
 
-console.log("hello")
-
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, DIR);
     },
     filename: (req, file, cb) => {
-      console.log(file)
         const fileName = file.originalname.toLowerCase().split(' ').join('-');
         cb(null, uuidv4() + '-' + fileName)
     }

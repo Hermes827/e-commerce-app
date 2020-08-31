@@ -1,8 +1,10 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron'
-import { withRouter } from 'react-router';
 import Alert from 'react-bootstrap/Alert'
+import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
+import { compose } from 'redux'
 
 class UploadProduct extends React.Component {
 
@@ -37,6 +39,7 @@ onSubmit = (e) => {
   formData.append("price", this.state.price);
   formData.append("description", this.state.description);
   formData.append("image", this.state.image);
+  formData.append("sellerID", this.props.currentUser._id);
   var requestOptions = {
     method: 'POST',
     body: formData,
@@ -91,4 +94,12 @@ onSubmit = (e) => {
 }
 }
 
-export default withRouter(UploadProduct)
+const mapDispatchToProps = {
+};
+
+const mapStateToProps = (state) => ({
+  currentUser: state.currentUser
+})
+
+export default compose(withRouter,
+  connect(mapStateToProps, mapDispatchToProps))(UploadProduct);
