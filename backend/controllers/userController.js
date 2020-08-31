@@ -16,11 +16,10 @@ exports.findUser = async function (req, res) {
 };
 
 exports.uploadProduct = async function (req, res) {
+    var url = req.protocol + '://' + req.get('host')
     var product = await Product.create({
                         name: req.body.name,
-                        // image: {
-                        //     type: String
-                        // },
+                        image: url + '/public/' + req.file.filename,
                         price: req.body.price,
                         description: req.body.description,
                         sellerID: req.query.userID

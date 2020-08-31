@@ -9,9 +9,7 @@ class UploadProduct extends React.Component {
     super()
     this.state = {
       name: "",
-      // image: {
-      //     type: String
-      // },
+      image: "",
       price: "",
       description: "",
       sellerID: ""
@@ -24,16 +22,29 @@ class UploadProduct extends React.Component {
       })
     }
 
+    captureFile = (e) => {
+      this.setState({
+        image: e.target.files[0]
+      })
+  }
+
 onSubmit = (e) => {
   e.preventDefault()
-  var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
   var raw = JSON.stringify({"name": this.state.name, "price": this.state.price,
     "description": this.state.description});
+    // var raw = JSON.stringify({"name": this.state.name, "price": this.state.price,
+    //   "description": this.state.description});
+    // var raw = {"name": this.state.name, "price": this.state.price,
+    //   "description": this.state.description};
+
+  var formData = new FormData();
+  formData.append("name", this.state.name);
+  formData.append("price", this.state.price);
+  formData.append("description", this.state.description);
+  formData.append("image", this.state.image);
   var requestOptions = {
     method: 'POST',
-    headers: myHeaders,
-    body: raw,
+    body: formData,
     redirect: 'follow'
   };
   fetch("http://localhost:4000/users/upload-product", requestOptions)
@@ -61,7 +72,7 @@ onSubmit = (e) => {
           <label>Description:</label><br/>
           <input className="uploadProductInput" type="text" name="description" placeholder="description" onChange={this.captureText}/><br/>
           <label>Image:</label><br/>
-          <input className="uploadProductInput" type="file" name="image"/><br/>
+          <input className="uploadProductInput" type="file" name="image" onChange={this.captureFile}/><br/>
           <Button className="uploadProductButton" variant="primary" onClick={this.onSubmit}>Upload</Button>
           <Button className="uploadProductButton" variant="primary" onClick={this.returnHome}>Cancel</Button>
         </form>
