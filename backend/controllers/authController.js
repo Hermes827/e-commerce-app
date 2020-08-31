@@ -1,5 +1,4 @@
 var User = require('../models/userModel');
-var VerifyToken = require('../middleware/verifyToken');
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 var config = require('../config');

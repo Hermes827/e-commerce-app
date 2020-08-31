@@ -2,7 +2,6 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import { withRouter } from 'react-router';
-import SuccessfulUpload from './successfulUpload.js'
 import Alert from 'react-bootstrap/Alert'
 
 class UploadProduct extends React.Component {

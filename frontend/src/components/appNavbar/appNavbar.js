@@ -1,9 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
-// import Navbar from 'react-bootstrap/Navbar'
-// import Container from 'react-bootstrap/Container'
-// import Nav from 'react-bootstrap/Nav'
+import { connect } from 'react-redux';
+import { compose } from 'redux'
+import { getUserInfo } from '../../actions/index.js'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 
 class AppNavbar extends React.Component{
 
@@ -14,35 +16,44 @@ class AppNavbar extends React.Component{
     }
   }
 
-  renderUploadProductLi(){
+  componentDidMount(){
+    if(localStorage.token){this.props.getUserInfo(localStorage.token)}
+  }
+
+  renderUploadProductLink(){
     if(localStorage.token){
-      return <li className="navbarLi"><Link to="/upload-product">Upload Product to MarketPlace</Link></li>
+      return <Nav.Link className="navbarUploadLink" href="/upload-product">Upload Product to MarketPlace</Nav.Link>
     }
   }
 
   renderLoggedInStatus(){
     if(localStorage.token){
-      return <li className="navbarLoggedInStatus">Logged in as: Anon</li>
+      return <Navbar.Text className="navbarText"><div className="navbarLoggedInStatus">Logged in as: {this.props.currentUser.name}</div></Navbar.Text>
     }
   }
 
  render(){
   return (
-    <div className="navbarDiv">
-      <ul className={(localStorage.token) ? "navbarUlLoggedin" : "navbarUl"}>
-        {this.renderLoggedInStatus()}
-        <li className="navbarLi"><Link to="/">Home</Link></li>
-        {this.renderUploadProductLi()}
-        <li className="navbarLi"><Link to={(localStorage.token) ? "/shoppingcart" : "/login"}>
-          {(localStorage.token) ? "Shopping Cart" : "Log In"}
-        </Link></li>
-      <li className="navbarLi"><Link to={(localStorage.token) ? "/signout" : "/signup"}>
-        {(localStorage.token) ? "Sign Out" : "Sign Up"}
-      </Link></li>
-      </ul>
-    </div>
+    <Navbar bg="dark" variant="dark" fixed="top">
+      {this.renderLoggedInStatus()}
+      {this.renderUploadProductLink()}
+
+       <Nav.Link className="navbarLink" href="/">Home</Nav.Link>
+       <Nav.Link className="navbarLink" href={(localStorage.token) ? "/shoppingcart" : "/login"}>{(localStorage.token) ? "Shopping Cart" : "Login"}</Nav.Link>
+       <Nav.Link className="navbarLink" href={(localStorage.token) ? "/signout" : "/signup"}>{(localStorage.token) ? "Sign Out" : "Sign Up"}</Nav.Link>
+  
+    </Navbar>
   );
 };
 }
 
-export default withRouter(AppNavbar);
+const mapDispatchToProps = {
+  getUserInfo
+};
+
+const mapStateToProps = (state) => ({
+  currentUser: state.currentUser
+})
+
+export default compose(withRouter,
+  connect(mapStateToProps, mapDispatchToProps))(AppNavbar);
