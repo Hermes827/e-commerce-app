@@ -30,13 +30,6 @@ class UploadProduct extends React.Component {
 
 onSubmit = (e) => {
   e.preventDefault()
-  var raw = JSON.stringify({"name": this.state.name, "price": this.state.price,
-    "description": this.state.description});
-    // var raw = JSON.stringify({"name": this.state.name, "price": this.state.price,
-    //   "description": this.state.description});
-    // var raw = {"name": this.state.name, "price": this.state.price,
-    //   "description": this.state.description};
-
   var formData = new FormData();
   formData.append("name", this.state.name);
   formData.append("price", this.state.price);
