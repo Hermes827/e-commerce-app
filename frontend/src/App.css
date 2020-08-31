@@ -145,28 +145,32 @@
 .navbarUploadLink {
   font-size: 1.25rem;
   font-weight: 500;
-  margin-right: 26%;
-}
-
-.navbarLink {
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin: 0 1.25rem;
-}
-
-.navbarLinkDiv {
-
+  width: 100%;
 }
 
 .navbarText {
-  width: 15%;
-  margin-left: 3%;
+  width: 100%;
+  text-align: center;
 }
 
 .navbarLoggedInStatus {
   color: green;
   font-size: 1.25rem;
   font-weight: 600;
+}
+
+.navbarH1 {
+  text-align: center;
+  font-weight: 500;
+  color: green;
+  width: 100%;
+}
+
+.navbarLink {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  width: 100%;
 }
 
 /* //////////////////////////////// */

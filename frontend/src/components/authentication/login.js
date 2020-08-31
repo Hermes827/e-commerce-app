@@ -4,6 +4,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { compose } from 'redux'
+import { getUserInfo } from '../../actions/index.js'
 
 class Login extends React.Component {
 
@@ -36,7 +37,7 @@ onSubmit = (e) => {
     .then(response => response.json())
     .then(result => {
       if(result.token){localStorage.token = result.token}
-      // this.props.getCookie(localStorage.token)
+      this.props.getUserInfo(localStorage.token)
       this.props.history.push('/')
     })
     .catch(error => console.log('error', error));
@@ -69,9 +70,11 @@ onSubmit = (e) => {
 }
 
 const mapDispatchToProps = {
+  getUserInfo
 };
 
 const mapStateToProps = (state) => ({
+  currentUser: state.currentUser
 })
 
 export default compose(withRouter,
