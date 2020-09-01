@@ -12,12 +12,14 @@ class UploadProduct extends React.Component {
     super()
     this.state = {
       name: "",
-      image: "",
+      image: null,
       price: "",
       description: "",
       sellerID: "",
-      successfulUpload: false
+      successfulUpload: false,
+      inputKey: ""
     }
+    this.myRef = React.createRef();
   }
 
   captureText = (e) => {
@@ -48,10 +50,14 @@ onSubmit = (e) => {
   fetch("http://localhost:4000/users/upload-product", requestOptions)
     .then(response => response.json())
     .then(result => {
-      console.log(result)
       this.setState({
-        successfulUpload: true
+        successfulUpload: true,
+        name: "",
+        price: "",
+        description: "",
+        sellerID: ""
       })
+      this.myRef.current.value = null
     })
     .catch(error => console.log('error', error));
 }
@@ -77,14 +83,18 @@ onSubmit = (e) => {
         <h1 className="uploadProductH1">Upload a product!</h1>
         <form className="uploadProductForm">
           <label>Name:</label><br/>
-          <input className="uploadProductInput" type="text" name="name" placeholder="name" onChange={this.captureText}/><br/>
+          <input className="uploadProductInput"
+            type="text" name="name" placeholder="name" value={this.state.name} onChange={this.captureText}/><br/>
           {this.renderSuccessfulUpload()}
           <label>Price:</label><br/>
-          <input className="uploadProductInput" type="text" name="price" placeholder="price" onChange={this.captureText}/><br/>
+          <input className="uploadProductInput"
+            type="text" name="price" placeholder="price" value={this.state.price} onChange={this.captureText}/><br/>
           <label>Description:</label><br/>
-          <input className="uploadProductInput" type="text" name="description" placeholder="description" onChange={this.captureText}/><br/>
+          <input className="uploadProductInput"
+            type="text" name="description" placeholder="description" value={this.state.description} onChange={this.captureText}/><br/>
           <label>Image:</label><br/>
-          <input className="uploadProductInput" type="file" name="image" onChange={this.captureFile}/><br/>
+          <input className="uploadProductInput"
+            type="file" name="image" ref={this.myRef} onChange={this.captureFile}/><br/>
           <Button className="uploadProductButton" variant="primary" onClick={this.onSubmit}>Upload</Button>
           <Button className="uploadProductButton" variant="primary" onClick={this.returnHome}>Cancel</Button>
         </form>

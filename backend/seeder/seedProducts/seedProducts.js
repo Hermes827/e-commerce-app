@@ -9,41 +9,41 @@ const products = [
     image: "https://bucket-8-21-20.s3.us-east-2.amazonaws.com/garlic.png",
     price: "$1.99",
     description: "A spicy herb",
-    sellerID: String
+    sellerID: "5f4a8e4abd528c0acb6aea97"
   }),
   new Product({
     name: "Comfrey",
     image: "https://bucket-8-21-20.s3.us-east-2.amazonaws.com/comfrey.png",
     price: "$0.99",
     description: "A healing herb",
-    sellerID: String
+    sellerID: "5f4a8e4abd528c0acb6aea97"
   }),
   new Product({
     name: "Dandelion Root",
     image: "https://bucket-8-21-20.s3.us-east-2.amazonaws.com/dandelion_root.png",
     price: "$2.99",
     description: "A liver tonic",
-    sellerID: String
+    sellerID: "5f4a8e4abd528c0acb6aea97"
   }),
   new Product({
     name: "Ginseng",
     image: "https://bucket-8-21-20.s3.us-east-2.amazonaws.com/ginseng.png",
     price: "$5.00",
     description: "A great herb for vitality",
-    sellerID: String
+    sellerID: "5f4a8e4abd528c0acb6aea97"
   }),
   new Product({
     name: "Wormwood",
     image: "https://bucket-8-21-20.s3.us-east-2.amazonaws.com/wormwood.png",
     price: "$1.99",
     description: "A good herb for cleansing the body of parasites",
-    sellerID: String
+    sellerID: "5f4a8e4abd528c0acb6aea97"
   })
 
 ]
 
 mongoose
-  .connect(url, { useNewUrlParser: true })
+  .connect(String(url), { useNewUrlParser: true })
   .catch(err => {
     console.log(err.stack);
     process.exit(1);

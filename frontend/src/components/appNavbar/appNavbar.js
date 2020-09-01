@@ -6,6 +6,12 @@ import { getUserInfo } from '../../actions/index.js'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'
+import InputGroup from 'react-bootstrap/InputGroup'
+import { Search } from 'react-bootstrap-icons';
+import { Cart4 } from 'react-bootstrap-icons';
 
 class AppNavbar extends React.Component{
 
@@ -16,33 +22,51 @@ class AppNavbar extends React.Component{
   renderUploadProductLink(){
     if(localStorage.token){
       return <Nav.Link className="navbarUploadLink" href="/upload-product">Upload Product to MarketPlace</Nav.Link>
+    } else {
+      return <div></div>
     }
   }
 
-  renderLoggedInStatus(){
+  renderLoginLink(){
+    if(!localStorage.token){
+      return <Nav.Link className="navbarLink" href="/login">Log In</Nav.Link>
+    }
+  }
+
+  renderAccountDropdownMenu(){
     if(localStorage.token){
-      return <Navbar.Text className="navbarText"><div className="navbarLoggedInStatus">Logged in as: {this.props.currentUser.username}</div></Navbar.Text>
-    } else {
-      return <h1 className="navbarH1">Herb Bazaar</h1>
+      return (
+        <NavDropdown className="navbarDropdown" title="Account">
+        <NavDropdown.Item href="/my-profile">View Profile</NavDropdown.Item>
+        <NavDropdown.Item href="/settings">Settings</NavDropdown.Item>
+        <NavDropdown.Item href="/my-products">My Products</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="/signout">Sign Out {this.props.currentUser.username}</NavDropdown.Item>
+        </NavDropdown>
+      )
     }
   }
 
  render(){
   return (
     <Navbar bg="dark" variant="dark" fixed="top">
-      <Container>
-      {this.renderLoggedInStatus()}
-      {this.renderUploadProductLink()}
-      </Container>
-      <Container>
-       <div className="navbarLink"></div>
+      <Container fluid>
+      <h1 className="navbarH1">Herb Bazaar</h1>
+      <InputGroup className={(localStorage.token) ? "navbarSearchbarInputGroupLoggedIn" : "navbarSearchbarInputGroupLoggedOut"}>
+       <Form.Control type="text" placeholder="Search"/>
+       <InputGroup.Append>
+         <InputGroup.Text><Search/></InputGroup.Text>
+       </InputGroup.Append>
+      </InputGroup>
+
+        {this.renderUploadProductLink()}
        <Nav.Link className="navbarLink" href="/">Home</Nav.Link>
-       <Nav.Link className="navbarLink" href={(localStorage.token) ? "/shoppingcart" : "/login"}>
-         {(localStorage.token) ? "Shopping Cart" : "Login"}
+
+       <Nav.Link className="navbarLink" href={(localStorage.token) ? "/shoppingcart" : "/signup"}>
+         {(localStorage.token) ? <Cart4 size={32}/> : "Sign Up"}
        </Nav.Link>
-       <Nav.Link className="navbarLink" href={(localStorage.token) ? "/signout" : "/signup"}>
-         {(localStorage.token) ? "Sign Out" : "Sign Up"}
-       </Nav.Link>
+       {this.renderLoginLink()}
+       {this.renderAccountDropdownMenu()}
        </Container>
        {console.log(this.props.currentUser)}
     </Navbar>
