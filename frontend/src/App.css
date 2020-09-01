@@ -149,7 +149,7 @@
 }
 
 .navbarSearchbarInputGroupLoggedIn {
-  width: 35%;
+  width: 40%;
 }
 
 .navbarSearchbarInputGroupLoggedOut {
@@ -160,14 +160,7 @@
   text-align: center;
   font-size: 1rem;
   font-weight: 500;
-  width: 20%;
-}
-
-.navbarUploadEmpty {
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 500;
-  /* width: 20%; */
+  width: 15%;
 }
 
 .navbarLink {

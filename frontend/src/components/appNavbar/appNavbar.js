@@ -8,9 +8,7 @@ import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form'
-import InputGroup from 'react-bootstrap/InputGroup'
-import { Search } from 'react-bootstrap-icons';
+import SearchBar from './searchBar'
 import { Cart4 } from 'react-bootstrap-icons';
 
 class AppNavbar extends React.Component{
@@ -50,25 +48,18 @@ class AppNavbar extends React.Component{
  render(){
   return (
     <Navbar bg="dark" variant="dark" fixed="top">
-      <Container fluid>
-      <h1 className="navbarH1">Herb Bazaar</h1>
-      <InputGroup className={(localStorage.token) ? "navbarSearchbarInputGroupLoggedIn" : "navbarSearchbarInputGroupLoggedOut"}>
-       <Form.Control type="text" placeholder="Search"/>
-       <InputGroup.Append>
-         <InputGroup.Text><Search/></InputGroup.Text>
-       </InputGroup.Append>
-      </InputGroup>
-
-        {this.renderUploadProductLink()}
-       <Nav.Link className="navbarLink" href="/">Home</Nav.Link>
-
-       <Nav.Link className="navbarLink" href={(localStorage.token) ? "/shoppingcart" : "/signup"}>
-         {(localStorage.token) ? <Cart4 size={32}/> : "Sign Up"}
-       </Nav.Link>
-       {this.renderLoginLink()}
-       {this.renderAccountDropdownMenu()}
-       </Container>
-       {console.log(this.props.currentUser)}
+     <Container fluid>
+     <h1 className="navbarH1">Herb Bazaar</h1>
+     <SearchBar/>
+     {this.renderUploadProductLink()}
+     <Nav.Link className="navbarLink" href="/">Home</Nav.Link>
+     <Nav.Link className="navbarLink" href={(localStorage.token) ? "/shoppingcart" : "/signup"}>
+      {(localStorage.token) ? <Cart4 size={32}/> : "Sign Up"}
+     </Nav.Link>
+     {this.renderLoginLink()}
+     {this.renderAccountDropdownMenu()}
+     </Container>
+     {console.log(this.props.currentUser)}
     </Navbar>
   );
 };

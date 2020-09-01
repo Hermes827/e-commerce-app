@@ -14,6 +14,13 @@ exports.findProduct = async function (req, res) {
     })
 };
 
+exports.findProductByName = async function (req, res) {
+    var product = await Product.find({"name": req.query.searchTerm}, function (err, product) {
+        if (err) return res.status(500).send("There was a problem finding the products.");
+        res.status(200).send(product);
+    })
+};
+
 exports.createProduct = async function (req, res) {
     var product = await Product.create({
                         name: req.body.name,
