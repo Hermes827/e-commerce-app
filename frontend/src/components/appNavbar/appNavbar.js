@@ -9,13 +9,36 @@ import Container from 'react-bootstrap/Container'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Button from 'react-bootstrap/Button';
 import SearchBar from './searchBar'
-import { Cart4 } from 'react-bootstrap-icons';
+import CartIcon from './cartIcon.js'
 
 class AppNavbar extends React.Component{
 
+  constructor(){
+    super()
+    this.state = {
+      isCurrentUser: false
+    }
+  }
+
   componentDidMount(){
     if(localStorage.token){this.props.getUserInfo(localStorage.token)}
+    this.setState({
+      isCurrentUser: true
+    })
   }
+
+  // notCurrentUser(){
+  //
+  // }
+
+  // componentDidUpdate(prevProps, prevState){
+  //   if(this.props.currentUser.shoppingCart !== prevProps.currentUser.shoppingCart){
+  //     this.setState({
+  //       isCurrentUser: false
+  //     })
+  //
+  //   }
+  // }
 
   renderUploadProductLink(){
     if(localStorage.token){
@@ -47,14 +70,14 @@ class AppNavbar extends React.Component{
 
  render(){
   return (
-    <Navbar bg="dark" variant="dark" fixed="top">
+    <Navbar className="navbar" bg="dark" variant="dark" fixed="top">
      <Container fluid>
      <h1 className="navbarH1">Herb Bazaar</h1>
      <SearchBar/>
      {this.renderUploadProductLink()}
      <Nav.Link className="navbarLink" href="/">Home</Nav.Link>
      <Nav.Link className="navbarLink" href={(localStorage.token) ? "/shoppingcart" : "/signup"}>
-      {(localStorage.token) ? <Cart4 size={32}/> : "Sign Up"}
+      {(localStorage.token) ? <CartIcon/> : "Sign Up"}
      </Nav.Link>
      {this.renderLoginLink()}
      {this.renderAccountDropdownMenu()}
