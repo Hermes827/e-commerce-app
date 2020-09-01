@@ -37,3 +37,22 @@
 //   </ul>
 //   {console.log(this.props)}
 // </div>
+
+// <Nav.Link className="navbarLink" href={(localStorage.token) ? "/shoppingcart" : "/login"}>
+//   {(localStorage.token) ? "Shopping Cart" : "Login"}
+// </Nav.Link>
+// <Nav.Link className="navbarLink" href={(localStorage.token) ? "/shoppingcart" : "/signup"}>
+//   {(localStorage.token) ? "Shopping Cart" : "Sign Up"}
+// </Nav.Link>
+
+// <Form className="navbarSearchbar" inline>
+// <Form.Control className="navbarSearchbarInput" type="text" placeholder="Search" className="mr-sm-2" />
+// <Button className="navbarSearchbarButton" variant="outline-success">Search</Button>
+// </Form>
+
+// <InputGroup className="mb-3">
+//  <Form.Control className="navbarSearchbarInput" type="text" placeholder="Search" className="mr-sm-2"/>
+//  <InputGroup.Append>
+//    <InputGroup.Text>com</InputGroup.Text>
+//  </InputGroup.Append>
+// </InputGroup>

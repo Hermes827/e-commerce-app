@@ -134,43 +134,54 @@
 }
 
 .uploadProductAlertMessage {
-  display: inline-block;
   margin-top: 6%;
   margin-left: 15%;
-  font-size: 2.5rem;
+  font-size: 200%;
 }
 
 /* navbar ////////////// */
-
-.navbarUploadLink {
-  font-size: 1.25rem;
-  font-weight: 500;
-  width: 100%;
-}
-
-.navbarText {
-  width: 100%;
-  text-align: center;
-}
-
-.navbarLoggedInStatus {
-  color: green;
-  font-size: 1.25rem;
-  font-weight: 600;
-}
 
 .navbarH1 {
   text-align: center;
   font-weight: 500;
   color: green;
-  width: 100%;
+  width: 20%;
+}
+
+.navbarSearchbarInputGroupLoggedIn {
+  width: 35%;
+}
+
+.navbarSearchbarInputGroupLoggedOut {
+  width: 50%;
+}
+
+.navbarUploadLink {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 20%;
+}
+
+.navbarUploadEmpty {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  /* width: 20%; */
 }
 
 .navbarLink {
   text-align: center;
   font-size: 1.25rem;
   font-weight: 500;
-  width: 100%;
+  width: 10%;
+}
+
+.navbarDropdown {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  width: 15%;
 }
 
 /* //////////////////////////////// */
