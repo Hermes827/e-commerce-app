@@ -36,21 +36,21 @@ exports.uploadProduct = async function (req, res) {
           })
         };
 
-exports.addToCart = async function (req, res) {
-    // var url = req.protocol + '://' + req.get('host')
-    // var product = await Product.create({
-    //                     name: req.body.name,
-    //                     image: url + '/public/' + req.file.filename,
-    //                     price: req.body.price,
-    //                     description: req.body.description,
-    //                     sellerID: req.query.userID
-    //       }, function (err, product) {
-    //     if (err) return res.status(500).send("There was a problem uploading the product.");
-    //     res.status(200).send(product);
-    // }).catch(err)
+exports.addToCart = function (req, res) {
+    User.findByIdAndUpdate(req.body.userID, {$addToSet: {"shoppingCart": req.body.productID}}, function(err, data){
+    if(err){return res.status(500).send("There was a problem adding the product to the cart.")}
+    res.status(200).send(data);
+  })
 };
 
-exports.purgeProducts = async function (req, res) {
+exports.purgeCart = async function (req, res) {
+  await User.findByIdAndUpdate(req.body.userID, {$set: {"shoppingCart": []}}, function(err, data){
+    if(err){return res.status(500).send("There was a problem adding the product to the cart.")}
+    res.status(200).send(data);
+  })
+  }
+
+exports.purgeProducts = function (req, res) {
   console.log(req.query.sellerID)
   User.findByIdAndUpdate(req.query.sellerID, {$set: {"products": []}}, function(err, user){
     if(err){

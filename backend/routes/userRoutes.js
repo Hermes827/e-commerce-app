@@ -8,5 +8,7 @@ router.get('/find', UserController.findUser)
 router.post('/upload-product', Upload.single('image'), UserController.uploadProduct)
 router.put('/add-to-cart', UserController.addToCart)
 router.put('/delete-products', UserController.purgeProducts)
+router.put('/empty-shoppingcart', UserController.purgeCart)
+
 
 module.exports = router;
