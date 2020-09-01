@@ -13,32 +13,9 @@ import CartIcon from './cartIcon.js'
 
 class AppNavbar extends React.Component{
 
-  constructor(){
-    super()
-    this.state = {
-      isCurrentUser: false
-    }
-  }
-
   componentDidMount(){
     if(localStorage.token){this.props.getUserInfo(localStorage.token)}
-    this.setState({
-      isCurrentUser: true
-    })
   }
-
-  // notCurrentUser(){
-  //
-  // }
-
-  // componentDidUpdate(prevProps, prevState){
-  //   if(this.props.currentUser.shoppingCart !== prevProps.currentUser.shoppingCart){
-  //     this.setState({
-  //       isCurrentUser: false
-  //     })
-  //
-  //   }
-  // }
 
   renderUploadProductLink(){
     if(localStorage.token){
@@ -82,7 +59,6 @@ class AppNavbar extends React.Component{
      {this.renderLoginLink()}
      {this.renderAccountDropdownMenu()}
      </Container>
-     {console.log(this.props.currentUser)}
     </Navbar>
   );
 };

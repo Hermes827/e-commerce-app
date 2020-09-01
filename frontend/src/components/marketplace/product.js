@@ -28,7 +28,7 @@ class Product extends React.Component {
       .then(response => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
-    // this.props.getUserInfo()
+    this.props.getUserInfo(localStorage.token)
     }
 
   render(){
