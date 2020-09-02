@@ -6,15 +6,22 @@ import { compose } from 'redux'
 
 class CartIcon extends React.Component {
 
+  cartCounter = () => {
+    if(this.props.currentUser.shoppingCart.length > 9){
+      return "9+"
+    } else {
+      return this.props.currentUser.shoppingCart.length
+    }
+  }
+
   render(){
   return (
-    <div className="cartDivContainer">
-    {(this.props.currentUser.shoppingCart === undefined || this.props.currentUser.shoppingCart.length === 0) ? <Cart4 className="emptyShoppingCart" size={40}/>
-  : <div className="shoppingCartDiv"><div className="shoppingCartCounter">{this.props.currentUser.shoppingCart.length}</div><Cart4 className="shoppingCart" size={40}/></div>}
-  </div>
-  );
-}
-}
+    <>{(this.props.currentUser.shoppingCart === undefined || this.props.currentUser.shoppingCart.length === 0)
+        ? <Cart4 size={40}/> : <div><div className="shoppingCartIconCounter">{this.cartCounter()}</div>
+        <Cart4 className="shoppingCartIcon" size={40}/></div>}</>
+      );
+    }
+  }
 
 const mapDispatchToProps = {
 };

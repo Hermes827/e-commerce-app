@@ -25,7 +25,7 @@ class SearchBar extends React.Component {
       redirect: 'follow'
     };
 
-  fetch(`http://localhost:4000/products/find?searchTerm=${this.state.searchTerm}`, requestOptions)
+  fetch(`http://localhost:4000/products/search?searchTerm=${this.state.searchTerm}`, requestOptions)
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
