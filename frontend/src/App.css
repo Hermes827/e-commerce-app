@@ -190,6 +190,21 @@
   background-color: white;
 }
 
+.shoppingCartH1 {
+  position: fixed;
+  z-index: 1;
+  background-color: white;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  width: 50%;
+}
+
+.shoppingCartNavbar {
+  /* margin-bottom: 3%; */
+  margin: 1% auto;
+}
+
 .shoppingCartCol1 {
   height: 91vh;
   border-style: solid;
@@ -234,4 +249,12 @@
 
 .marketplace {
   padding-top: 5%;
+}
+
+.profile {
+  background-color: green;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  height: 10em;
 }

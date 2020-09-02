@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Checkout from '../checkout/checkout.js'
+import Navbar from 'react-bootstrap/Navbar'
 
 class ShoppingCart extends React.Component {
 
@@ -38,14 +39,12 @@ class ShoppingCart extends React.Component {
   });
   }
 
-
-
   render(){
   return (
     <Container className="shoppingCart">
       <Row>
         <Col className="shoppingCartCol1" lg={8}>
-          <h1>My Cart</h1>
+          <Navbar className="shoppingCartNavbar"><h1 className="shoppingCartH1">My Cart</h1></Navbar>
           {(this.props.currentUser.shoppingCart !== undefined && this.props.currentUser.shoppingCart.length === this.state.items.length)
             ? this.state.items.map(item => {
             return <Item key={item._id} item={item}/>

@@ -59,6 +59,7 @@ class AppNavbar extends React.Component{
      {this.renderLoginLink()}
      {this.renderAccountDropdownMenu()}
      </Container>
+     {console.log(this.props.currentUser._id)}
     </Navbar>
   );
 };
