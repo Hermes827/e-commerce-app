@@ -6,6 +6,7 @@ import Item from './item.js'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Checkout from '../checkout/checkout.js'
 
 class ShoppingCart extends React.Component {
 
@@ -21,12 +22,12 @@ class ShoppingCart extends React.Component {
   }
 
   getItemsInfo(){
-  this.props.currentUser.products.map(product => {
+  this.props.currentUser.shoppingCart.map(item => {
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
       };
-  fetch(`http://localhost:4000/products/find?productID=${product}`, requestOptions)
+  fetch(`http://localhost:4000/products/find?productID=${item}`, requestOptions)
   .then(response => response.json())
   .then(result => {
     this.setState({
@@ -41,15 +42,20 @@ class ShoppingCart extends React.Component {
 
   render(){
   return (
-    <Container className="shoppingCart" fluid>
-    <Row>
-    <h1>My Cart</h1>
-    {(this.props.currentUser.products !== undefined && this.props.currentUser.products.length === this.state.items.length)
-      ? this.state.items.map(item => {
-      return <Item key={item._id} item={item}/>
-    }) : null}
-    </Row>
-    <Row>pay</Row>
+    <Container className="shoppingCart">
+      <Row>
+        <Col className="shoppingCartCol1" lg={8}>
+          <h1>My Cart</h1>
+          {(this.props.currentUser.shoppingCart !== undefined && this.props.currentUser.shoppingCart.length === this.state.items.length)
+            ? this.state.items.map(item => {
+            return <Item key={item._id} item={item}/>
+          }) : null}
+        </Col>
+        <Col className="shoppingCartCol2" lg={4}>
+        <Checkout/>
+        </Col>
+        {console.log(this.state.items)}
+      </Row>
     </Container>
   );
 }

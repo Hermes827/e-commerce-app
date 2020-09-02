@@ -185,16 +185,53 @@
 /* shoppingCart.js ///////////////// */
 
 .shoppingCart {
-  /* display: inline-block; */
-  padding-top: 5%;
+  padding-top: 4%;
   color: green;
+  background-color: white;
 }
 
+.shoppingCartCol1 {
+  height: 91vh;
+  border-style: solid;
+  border-width: medium;
+  overflow: scroll;
+  /* border-right-color: green; */
+}
+
+.shoppingCartCol2 {
+  height: 91vh;
+  border-style: solid;
+  border-width: medium;
+}
+
+/* item ////////////////////// */
+
+.item {
+  height: 30%;
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  margin: 1%;
+  width: 90%;
+}
+
+.itemCol1 {
+  height: 100%;
+}
+
+.itemCol2 {
+
+}
+
+.itemIMG {
+  height: 125px;
+  margin: 7% auto;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+}
 /* //////////////////////////////// */
 
 .marketplace {
   padding-top: 5%;
 }
-
-
-/* //////////////////////////////// */

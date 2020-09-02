@@ -6,13 +6,6 @@ import { getUserInfo } from '../../actions/index.js'
 
 class Product extends React.Component {
 
-  constructor(){
-    super()
-    this.state = {
-      refresh: ""
-    }
-  }
-
   addProductToCart = (e) => {
     e.preventDefault()
     var myHeaders = new Headers();
