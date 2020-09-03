@@ -9,9 +9,11 @@ exports.signup = async function(req, res) {
     name : req.body.name,
     email : req.body.email,
     password : hashedPassword,
-    username: req.body.username
+    username: req.body.username,
+    profileImg: 'https://bucket-8-21-20.s3.us-east-2.amazonaws.com/anon.png'
   },
   function (err, user) {
+    console.log(err)
     if (err) return res.status(500).send("There was a problem registering the user.")
     var token = jwt.sign({ id: user._id }, config.secret, {
       expiresIn: 86400 // expires in 24 hours

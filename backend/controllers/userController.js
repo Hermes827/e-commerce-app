@@ -17,7 +17,8 @@ exports.findUser = async function (req, res) {
 
 exports.editUser = async function (req, res) {
   const url = req.protocol + '://' + req.get('host')
-  User.findByIdAndUpdate(req.userId, {profileImg: url + '/public/' + req.file.filename}, function (err, user) {
+  console.log(req.query.userID)
+  User.findByIdAndUpdate(req.query.userID, {profileImg: url + '/public/' + req.file.filename}, function (err, user) {
       if(err){
         console.log(err)
       } else {

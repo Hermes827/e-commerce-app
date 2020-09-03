@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button, Jumbotron } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-// import {withRouter} from 'react-router';
-// import { compose } from 'redux'
-// import { connect } from 'react-redux';
-// import { fetchUserData } from '../../actions/index.js';
+import {withRouter} from 'react-router';
+import { compose } from 'redux'
+import { connect } from 'react-redux';
+// import { getUserInfo } from '../../actions/index.js';
 
 class Signup extends React.Component {
 
@@ -40,7 +40,7 @@ onSubmit = (e) => {
     .then(response => response.json())
     .then(result => {
       if(result.token){localStorage.token = result.token}
-      // this.props.fetchUserData(localStorage.token)
+      // this.props.getUserInfo(localStorage.token)
       this.props.history.push('/homepage')
     })
     .catch(error => console.log('error', error));
@@ -76,16 +76,11 @@ onSubmit = (e) => {
 }
 }
 
-export default Signup
+const mapDispatchToProps = {
+};
 
-// const mapDispatchToProps = {
-//   fetchUserData
-// };
-//
-// const mapStateToProps = (state) => ({
-// })
-//
-// export default compose(
-//   withRouter,
-//   connect(mapStateToProps, mapDispatchToProps)
-// )(Signup);
+const mapStateToProps = (state) => ({
+})
+
+export default compose(withRouter,
+  connect(mapStateToProps, mapDispatchToProps))(Signup);

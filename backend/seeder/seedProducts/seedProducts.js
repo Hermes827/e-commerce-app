@@ -1,6 +1,6 @@
 const Product = require("../../models/productModel");
 const mongoose = require("mongoose");
-const url = 'mongodb://127.0.0.1:27017/ECA_db'
+const url = 'mongodb://127.0.0.1:27017/ECA_db1'
 
 const products = [
 

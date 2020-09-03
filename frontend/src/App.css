@@ -267,8 +267,6 @@
 }
 
 .myProfile {
-  /* background-color: white;
-  height: 10em; */
   width: 50%;
   height: 35rem;
   margin: auto;
@@ -286,23 +284,21 @@
   width: 50%;
   margin: 1% 0;
   margin-left: 1%;
+  min-height: 15em;
 }
 
 .editMyProfileImgButton {
-
-  /* width: 50%; */
-  /* margin-left: 2.8%; */
-  /* position: fixed; */
 }
 
 .editMyProfileDivContainer {
-  /* display: inline-block; */
-  margin-top: -5em;
-  margin-left: 23em;
-  /* height: 100%;
-  width: 40%; */
+  /* margin-bottom: 5%; */
+  min-height: 15em;
+}
+
+.editMyProfileDivContainer1 {
+  margin-top: -20%;
+  margin-left: 25em;
 }
 
 .editMyProfileSelectPictureDiv {
-  /* height: 20em; */
 }
