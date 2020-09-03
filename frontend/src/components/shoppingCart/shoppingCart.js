@@ -19,7 +19,7 @@ class ShoppingCart extends React.Component {
   }
 
   componentDidMount(){
-    setTimeout(()=> this.getItemsInfo(),1000)
+    // setTimeout(()=> this.getItemsInfo(),1000)
   }
 
   getItemsInfo(){
