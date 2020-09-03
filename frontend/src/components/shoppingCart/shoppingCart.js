@@ -19,7 +19,7 @@ class ShoppingCart extends React.Component {
   }
 
   componentDidMount(){
-    // setTimeout(()=> this.getItemsInfo(),1000)
+    setTimeout(()=> this.getItemsInfo(),1000)
   }
 
   getItemsInfo(){
@@ -53,7 +53,6 @@ class ShoppingCart extends React.Component {
         <Col className="shoppingCartCol2" lg={4}>
         <Checkout/>
         </Col>
-        {console.log(this.state.items)}
       </Row>
     </Container>
   );

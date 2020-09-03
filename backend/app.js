@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({
 var cors = require('cors')
 app.use(cors());
 app.use('/public', express.static('public'));
+app.use(express.static("."));
 var port = process.env.PORT || 4000;
 
 //////////////////////////////////////////////////
@@ -21,6 +22,9 @@ app.use('/products', ProductRouter);
 
 var AuthRouter = require('./routes/authRoutes');
 app.use('/auth', AuthRouter);
+
+var PaymentRouter = require('./routes/paymentRoutes');
+app.use('/payment', PaymentRouter);
 
 /////////////////////////////////////////////////
 

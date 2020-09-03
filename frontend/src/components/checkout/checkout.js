@@ -1,14 +1,28 @@
 import React from 'react';
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "./checkoutForm.js";
 
-class Checkout extends React.Component {
-
-  render(){
+const promise = loadStripe(process.env.REACT_APP_STRIPE_PK);
+export default function Checkout() {
   return (
     <div className="checkout">
-      checkout
+      <Elements stripe={promise}>
+        <CheckoutForm />
+      </Elements>
     </div>
   );
 }
-}
 
-export default Checkout
+// class Checkout extends React.Component {
+//
+//   render(){
+//   return (
+//     <div className="checkout">
+//       checkout
+//     </div>
+//   );
+// }
+// }
+//
+// export default Checkout

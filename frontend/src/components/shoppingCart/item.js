@@ -59,7 +59,7 @@ class Item extends React.Component {
     <Container className="item">
       <Row>
         <Col className="itemCol1" lg={3}>
-        <img className="itemIMG" src={this.props.item.image}/>
+        <img className="itemIMG" src={this.props.item.image} alt="item"/>
         </Col>
         <Col className="itemCol2" lg={9}>
           {this.props.item.name}<br/>

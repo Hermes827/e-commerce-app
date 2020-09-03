@@ -7,17 +7,13 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import Button from 'react-bootstrap/Button';
 import SearchBar from './searchBar'
 import CartIcon from './cartIcon.js'
-import dotenv from 'dotenv';
-const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class AppNavbar extends React.Component{
 
   componentDidMount(){
     if(localStorage.token){this.props.getUserInfo(localStorage.token)}
-    console.log(BASE_URL)
   }
 
   renderUploadProductLink(){
@@ -62,7 +58,6 @@ class AppNavbar extends React.Component{
      {this.renderLoginLink()}
      {this.renderAccountDropdownMenu()}
      </Container>
-     {console.log(this.props.currentUser._id)}
     </Navbar>
   );
 };
