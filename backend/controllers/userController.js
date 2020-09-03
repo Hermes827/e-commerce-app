@@ -15,6 +15,19 @@ exports.findUser = async function (req, res) {
     }).catch(err)
 };
 
+exports.editUser = async function (req, res) {
+  const url = req.protocol + '://' + req.get('host')
+  User.findByIdAndUpdate(req.userId, {profileImg: url + '/public/' + req.file.filename}, function (err, user) {
+      if(err){
+        console.log(err)
+      } else {
+        console.log("Updated User : ", user);
+            res.status(200).send(user);
+        }
+      });
+    };
+
+
 exports.uploadProduct = async function (req, res) {
     var url = req.protocol + '://' + req.get('host')
     var product = await Product.create({

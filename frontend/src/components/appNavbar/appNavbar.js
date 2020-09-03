@@ -35,6 +35,7 @@ class AppNavbar extends React.Component{
       return (
         <NavDropdown className="navbarDropdown" title="Account">
         <NavDropdown.Item href="/my-profile">View Profile</NavDropdown.Item>
+        <NavDropdown.Item href="/edit-my-profile">Edit Profile</NavDropdown.Item>
         <NavDropdown.Item href="/settings">Settings</NavDropdown.Item>
         <NavDropdown.Item href="/my-products">My Products</NavDropdown.Item>
         <NavDropdown.Divider />
@@ -46,6 +47,7 @@ class AppNavbar extends React.Component{
 
  render(){
   return (
+    <div className="navbarSpacer">
     <Navbar className="navbar" bg="dark" variant="dark" fixed="top">
      <Container fluid>
      <h1 className="navbarH1">Herb Bazaar</h1>
@@ -59,6 +61,7 @@ class AppNavbar extends React.Component{
      {this.renderAccountDropdownMenu()}
      </Container>
     </Navbar>
+    </div>
   );
 };
 }

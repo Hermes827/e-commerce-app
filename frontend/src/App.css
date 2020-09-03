@@ -31,7 +31,6 @@
 
 .loginH1 {
   float: left;
-  margin-top: 3%;
   font-size: 3rem;
   width: 75%;
   padding-left: 7%;
@@ -72,7 +71,7 @@
 /* uploadProduct /////////////*/
 
 .uploadProduct {
-  padding-top: 7%;
+  padding-top: 2.5%;
 }
 
 .uploadProductJumbotron {
@@ -83,7 +82,7 @@
 
 .uploadProductH1 {
   text-align: center;
-  margin-top: -8%;
+  /* margin-top: -8%; */
 }
 
 .uploadProductForm {
@@ -128,6 +127,10 @@
 
 .navbar {
   height: 8.5%;
+}
+
+.navbarSpacer {
+  margin-bottom: 4.1%;
 }
 
 .navbarH1 {
@@ -185,7 +188,7 @@
 /* shoppingCart.js ///////////////// */
 
 .shoppingCart {
-  padding-top: 4%;
+  /* padding-top: 4%; */
   color: green;
   background-color: white;
 }
@@ -248,7 +251,7 @@
 /* //////////////////////////////// */
 
 .marketplace {
-  padding-top: 5%;
+  /* padding-top: 5%; */
 }
 
 .profile {
@@ -264,6 +267,42 @@
 }
 
 .myProfile {
-  background-color: white;
-  height: 10em;
+  /* background-color: white;
+  height: 10em; */
+  width: 50%;
+  height: 35rem;
+  margin: auto;
+  margin-top: 6%;
+}
+
+.editMyProfile {
+  width: 50%;
+  height: 35rem;
+  margin: auto;
+  margin-top: 6%;
+}
+
+.editMyProfileImg {
+  width: 50%;
+  margin: 1% 0;
+  margin-left: 1%;
+}
+
+.editMyProfileImgButton {
+
+  /* width: 50%; */
+  /* margin-left: 2.8%; */
+  /* position: fixed; */
+}
+
+.editMyProfileDivContainer {
+  /* display: inline-block; */
+  margin-top: -5em;
+  margin-left: 23em;
+  /* height: 100%;
+  width: 40%; */
+}
+
+.editMyProfileSelectPictureDiv {
+  /* height: 20em; */
 }

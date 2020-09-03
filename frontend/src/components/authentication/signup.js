@@ -41,7 +41,7 @@ onSubmit = (e) => {
     .then(result => {
       if(result.token){localStorage.token = result.token}
       // this.props.fetchUserData(localStorage.token)
-      this.props.history.push('/homepage/user')
+      this.props.history.push('/homepage')
     })
     .catch(error => console.log('error', error));
 }
