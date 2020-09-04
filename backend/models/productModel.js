@@ -9,7 +9,8 @@ var ProductSchema = new mongoose.Schema({
   },
   price: String,
   description: String,
-  sellerID: ObjectId
+  sellerID: ObjectId,
+  sellerUsername: String
 });
 mongoose.model('Product', ProductSchema);
 

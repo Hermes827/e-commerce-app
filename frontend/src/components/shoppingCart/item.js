@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Profile from '../profile/profile.js'
+import { Link } from "react-router-dom";
 
 class Item extends React.Component {
 
@@ -14,28 +15,20 @@ class Item extends React.Component {
     }
   }
 
-
-
-// fetch("http://localhost:4000/users/find/?userID=5f4e9c92e4c93880a90ce19b", requestOptions)
-//   .then(response => response.text())
-//   .then(result => console.log(result))
-//   .catch(error => console.log('error', error));
-
   toggleProfile = () => {
-    console.log(this.props.item.sellerID)
-
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
       };
 
-    fetch(`http://localhost:4000/users/find/?userID=5f4e9c92e4c93880a90ce19b`, requestOptions)
+    fetch(`http://localhost:4000/users/find/?userID=${this.props.item.sellerID}`, requestOptions)
       .then(response => response.json())
       .then(result => {
         this.setState({
           seller: result,
           showProfile: true
         })
+        console.log(result)
       })
       .catch(error => console.log('error', error));
       this.renderProfile()
@@ -65,11 +58,12 @@ class Item extends React.Component {
           {this.props.item.name}<br/>
           {this.props.item.description}<br/>
           {this.props.item.price}<br/>
-        <button onClick={this.toggleProfile}>seller: {this.props.item.sellerID}</button>
+        <p>seller: <div className="itemSellerUsername" onClick={this.toggleProfile}>{this.props.item.sellerUsername}</div></p>
         {this.renderProfile()}
         </Col>
       </Row>
       <Row>hello</Row>
+      {console.log(this.props.item)}
     </Container>
   );
 }

@@ -15,9 +15,7 @@ class UploadProduct extends React.Component {
       image: null,
       price: "",
       description: "",
-      sellerID: "",
-      successfulUpload: false,
-      inputKey: ""
+      successfulUpload: false
     }
     this.myRef = React.createRef();
   }
@@ -42,6 +40,8 @@ onSubmit = (e) => {
   formData.append("description", this.state.description);
   formData.append("image", this.state.image);
   formData.append("sellerID", this.props.currentUser._id);
+  formData.append("sellerUsername", this.props.currentUser.username);
+
   var requestOptions = {
     method: 'POST',
     body: formData,
@@ -54,8 +54,7 @@ onSubmit = (e) => {
         successfulUpload: true,
         name: "",
         price: "",
-        description: "",
-        sellerID: ""
+        description: ""
       })
       this.myRef.current.value = null
     })

@@ -11,9 +11,9 @@ class MyProfile extends React.Component {
   render(){
   return (
       <Card className="myProfile">
-        <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+        <Card.Img className="myProfileImg" variant="top" src={this.props.currentUser.profileImg}/>
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
+          <Card.Title>{this.props.currentUser.username}</Card.Title>
           <Card.Text>
             Some quick example text to build on the card title and make up the bulk of
             the card's content.

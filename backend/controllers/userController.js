@@ -36,7 +36,8 @@ exports.uploadProduct = async function (req, res) {
                         image: url + '/public/' + req.file.filename,
                         price: req.body.price,
                         description: req.body.description,
-                        sellerID: req.body.sellerID
+                        sellerID: req.body.sellerID,
+                        sellerUsername: req.body.sellerUsername
           }, function(err, product){
             if(err){return res.status(500).send("There was a problem uploading the product.")}
             res.status(200).send(product);
