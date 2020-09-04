@@ -14,7 +14,8 @@ class ShoppingCart extends React.Component {
   constructor(){
     super()
     this.state = {
-      items: []
+      items: [],
+      checkout: false
     }
   }
 
@@ -39,6 +40,10 @@ class ShoppingCart extends React.Component {
   });
   }
 
+  renderCheckoutComponent(){
+
+  }
+
   render(){
   return (
     <Container className="shoppingCart">
@@ -51,7 +56,7 @@ class ShoppingCart extends React.Component {
           }) : null}
         </Col>
         <Col className="shoppingCartCol2" lg={4}>
-        <Checkout/>
+
         </Col>
       </Row>
     </Container>
