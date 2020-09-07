@@ -320,3 +320,29 @@
   margin-left: 1%;
   min-height: 15em;
 }
+
+.myProducts {
+  background-color: white;
+  height: 91vh;
+  border-style: solid;
+  border-width: medium;
+  overflow: scroll;
+}
+
+.myProduct {
+  height: 30%;
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  margin: 1%;
+  width: 90%;
+  width: 50%;
+}
+
+.myProductImage {
+  height: 125px;
+  /* margin: 7% auto; */
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+}

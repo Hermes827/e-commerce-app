@@ -24,6 +24,14 @@ class Product extends React.Component {
     this.props.getUserInfo(localStorage.token)
     }
 
+    renderButton(){
+      if(this.props.product.sellerID !== this.props.currentUser._id){
+        return <button onClick={this.addProductToCart}>add to cart</button>
+      } else {
+        return <div>your product</div>
+      }
+    }
+
   render(){
   return (
     <div className="product">
@@ -31,7 +39,7 @@ class Product extends React.Component {
     <h1>{this.props.product.name}</h1>
     <h3>{this.props.product.description}</h3>
     <h3>${this.props.product.price}</h3>
-    <button onClick={this.addProductToCart}>add to cart</button>
+    {this.renderButton()}
     </div>
   );
 }
