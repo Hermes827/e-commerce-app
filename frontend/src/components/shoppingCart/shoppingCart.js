@@ -44,6 +44,15 @@ class ShoppingCart extends React.Component {
 
   }
 
+  totalPrice(){
+    if(this.props.currentUser.shoppingCart !== undefined  && this.state.items.length === this.props.currentUser.shoppingCart.length){
+      this.state.items.map(item => {
+      console.log(parseInt(item.price))
+      //change validations so no strings are accepted as values for price
+    })
+  }
+  }
+
   render(){
   return (
     <Container className="shoppingCart">
@@ -56,7 +65,8 @@ class ShoppingCart extends React.Component {
           }) : null}
         </Col>
         <Col className="shoppingCartCol2" lg={4}>
-
+          <h1>Total</h1>
+          {this.totalPrice()}
         </Col>
       </Row>
     </Container>

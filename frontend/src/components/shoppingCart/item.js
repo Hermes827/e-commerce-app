@@ -58,12 +58,15 @@ class Item extends React.Component {
           {this.props.item.name}<br/>
           {this.props.item.description}<br/>
           {this.props.item.price}<br/>
-        <p>seller: <div className="itemSellerUsername" onClick={this.toggleProfile}>{this.props.item.sellerUsername}</div></p>
+        <div>seller: <div className="itemSellerUsername" onClick={this.toggleProfile}>{this.props.item.sellerUsername}</div></div>
         {this.renderProfile()}
         </Col>
       </Row>
-      <Row>hello</Row>
-      {console.log(this.props.item)}
+      <Row>
+        <button>remove item from shopping cart</button>
+
+      </Row>
+
     </Container>
   );
 }
