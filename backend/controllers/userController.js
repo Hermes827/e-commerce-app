@@ -84,21 +84,33 @@ exports.deleteUsers = function(req, res){
       res.status(200).send(deleted);
 };
 
+//////////////// seeder ///////////////////////////////////
+
 exports.addProducts = async function (req, res) {
-  await Product.find({}, function (err, products) {
+      await Product.find({}, function (err, products) {
       products.map(product => {
-        console.log(product._id)
         if(product.name === "Garlic" || product.name === "Ginseng"){
-          User.findOneAndUpdate({"name":"Slade"},{$push:{"products": [product._id]}}, function(err, data){
+        User.findOneAndUpdate({"name":"Slade"},{$push:{"products": [product._id]}}, function(err, data){
+          Product.findOneAndUpdate({"name":"Garlic"},{"sellerID": data._id}, function(err, data){
+            })
+          Product.findOneAndUpdate({"name":"Ginseng"},{"sellerID": data._id}, function(err, data){
+            })
           })
       } else if(product.name === "Comfrey" || product.name === "Dandelion Root" ){
         User.findOneAndUpdate({"name":"Sarah"},{$push:{"products": [product._id]}}, function(err, data){
+          Product.findOneAndUpdate({"name":"Dandelion Root"},{"sellerID": data._id}, function(err, data){
+            })
+          Product.findOneAndUpdate({"name":"Comfrey"},{"sellerID": data._id}, function(err, data){
+            })
         })
       } else {
         User.findOneAndUpdate({"name":"Peter"},{$push:{"products": [product._id]}}, function(err, data){
+          Product.findOneAndUpdate({"name":"Wormwood"},{"sellerID": data._id}, function(err, data){
+            })
         })
       }
-          res.status(200).send(products);
+          // res.status(200).send(products);
+          //as long as I dont send the res.status then the function won't throw up an error
   })
 })
 }
