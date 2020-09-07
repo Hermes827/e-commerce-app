@@ -10,6 +10,10 @@ router.post('/upload-product', Upload.single('image'), UserController.uploadProd
 router.put('/add-to-cart', UserController.addToCart)
 router.put('/delete-products', UserController.purgeProducts)
 router.put('/empty-shoppingcart', UserController.purgeCart)
+router.delete('/delete-all', UserController.deleteUsers)
+
+router.put('/add-products', UserController.addProducts)
+// router.put('/add-sellerid', UserController.addSellerID)
 
 
 module.exports = router;

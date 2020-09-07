@@ -77,17 +77,31 @@ exports.purgeProducts = function (req, res) {
   })
 }
 
-// exports.deleteMessages = async function(req, res){
-//   User.findByIdAndUpdate(req.query.userID, { $set: {"mailBox": []} }, function (err, user) {
-//       if(err){
-//         console.log(err)
-//       } else {
-//         console.log("Updated User : ", user);
-//             res.status(200).send(user);
-//         }
-//       });
-// };
+exports.deleteUsers = function(req, res){
+  var deleted = User.deleteMany()
+      .then(result => console.log(`Deleted ${result.deletedCount} item(s).`))
+      .catch(err => console.error(`Delete failed with error: ${err}`))
+      res.status(200).send(deleted);
+};
 
+exports.addProducts = async function (req, res) {
+  await Product.find({}, function (err, products) {
+      products.map(product => {
+        console.log(product._id)
+        if(product.name === "Garlic" || product.name === "Ginseng"){
+          User.findOneAndUpdate({"name":"Slade"},{$push:{"products": [product._id]}}, function(err, data){
+          })
+      } else if(product.name === "Comfrey" || product.name === "Dandelion Root" ){
+        User.findOneAndUpdate({"name":"Sarah"},{$push:{"products": [product._id]}}, function(err, data){
+        })
+      } else {
+        User.findOneAndUpdate({"name":"Peter"},{$push:{"products": [product._id]}}, function(err, data){
+        })
+      }
+          res.status(200).send(products);
+  })
+})
+}
 
 // exports.uploadPhoto = async function (req, res) {
 //   const url = req.protocol + '://' + req.get('host')

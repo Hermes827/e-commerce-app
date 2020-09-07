@@ -36,6 +36,7 @@ onSubmit = (e) => {
   fetch("http://localhost:4000/auth/login", requestOptions)
     .then(response => response.json())
     .then(result => {
+      console.log(result)
       if(result.token){localStorage.token = result.token}
       this.props.getUserInfo(localStorage.token)
       this.props.history.push('/')
